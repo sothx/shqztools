@@ -1,0 +1,12 @@
+<!--pages/my/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">历史记录</view>
+</cu-custom>
+<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+  <view class="flex justify-center">
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>获取头像昵称</button>
+  </view>
+  <view class="flex justify-center" style="margin-top:10px;">
+        <text>授权后可使用存储星灵源宠历史记录的功能</text>
+  </view>
+</view>

@@ -1,4 +1,5 @@
-// pages/my/index.js
+// pages/pk/index.js
+//获取应用实例
 const app = getApp()
 Page({
 
@@ -10,15 +11,15 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-    // 获取用户信息
-    getUserInfo: function(e) {
-      console.log(e)
-      app.globalData.userInfo = e.detail.userInfo
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
-      })
-    },
+  // 获取用户信息
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

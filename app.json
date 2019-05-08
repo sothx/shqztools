@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/pk/index",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,8 +18,11 @@
         "text": "计算器"
       },
       {
+        "pagePath": "pages/pk/index",
+        "text": "星灵PK"
+      },{
         "pagePath": "pages/my/index",
-        "text": "历史记录"
+        "text": "我的星灵"
       }
     ]
   },

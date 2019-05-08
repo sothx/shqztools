@@ -1,8 +1,8 @@
-<!--pages/my/index.wxml-->
+<!--pages/pk/index.wxml-->
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">我的星灵</view>
+  <view slot="content">星灵PK</view>
 </cu-custom>
-<view wx:if="{{!hasUserInfo && canIUse}}" class="margin padding bg-white radius shadow shadow-lg">
+<view wx:if="{{!hasUserInfo && canIUse}}" class="margin-xl padding-xl bg-white radius shadow shadow-lg">
   <view class="flex justify-center">
         <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>微信登录</button>
   </view>
@@ -10,6 +10,6 @@
         <text>授权后可使用星源灵宠属性PK的功能</text>
   </view>
 </view>
-<view wx:else class="margin padding bg-white radius shadow shadow-lg">
+<view wx:else class="margin-xl padding-xl bg-white radius shadow shadow-lg">
 
 </view>

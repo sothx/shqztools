@@ -4,17 +4,17 @@
 </cu-custom>
 <view wx:if="{{!hasUserInfo && canIUse}}" class="margin padding bg-white radius shadow shadow-lg">
   <view class="flex justify-center">
-        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>微信登录</button>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>获取微信用户信息</button>
   </view>
   <view class="flex justify-center" style="margin-top:10px;">
-        <text>授权后可使用星源灵宠属性PK的功能</text>
+        <text>授权后可使用星源灵宠本地保存功能</text>
   </view>
 </view>
 <view wx:else class="bg-white radius shadow shadow-lg">
   <view class="padding-tb-74 bg-gradual-blue userCard">
     <view class='text-center'>
       <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-      <view class="padding">{{userInfo.nickName}}</view>
+      <view class="padding"><text class=" {{userInfo.gender === 1 ? 'cuIcon-male' : 'cuIcon-female'}} text-white padding-right-xs"></text>{{userInfo.nickName}}</view>
     </view>
   <view class="cu-bar justify-center bg-white">
     <view class="action border-title">

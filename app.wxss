@@ -1,2 +1,7 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
+
+.padding-tb-74 {
+	padding-top: 74rpx;
+	padding-bottom: 74rpx;
+}

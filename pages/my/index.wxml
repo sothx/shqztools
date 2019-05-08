@@ -10,6 +10,35 @@
         <text>授权后可使用星源灵宠属性PK的功能</text>
   </view>
 </view>
-<view wx:else class="margin padding bg-white radius shadow shadow-lg">
-
+<view wx:else class="bg-white radius shadow shadow-lg">
+  <view class="padding-tb-74 bg-gradual-blue userCard">
+    <view class='text-center'>
+      <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+      <view class="padding">{{userInfo.nickName}}</view>
+    </view>
+  <view class="cu-bar justify-center bg-white">
+    <view class="action border-title">
+      <text class="text-xl text-bold text-blue">我的星源灵宠</text>
+      <text class="bg-gradual-blue" style="width:3rem"></text>
+    </view>
+  </view>
+    <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{12}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
+      <view class="content">
+        <view class="text-grey">星灵名称</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-favorfill text-red"></text> 逆天的星源灵宠 </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">2019-5-8</view>
+        <view class="cu-tag round bg-grey sm">22:20</view>
+      </view>
+      <view class="move">
+        <view class="bg-grey">查看</view>
+        <view class="bg-red">删除</view>
+      </view>
+    </view>
+  </view>
+</view>
 </view>

@@ -1,1 +1,4 @@
 /* pages/my/index.wxss */
+.userCard{
+  height:375rpx;
+}

@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/my/index",
-    "pages/pk/index",
     "pages/index/index",
-    "pages/shop/index"
+    "pages/my/index",
+    "pages/pk/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,10 +20,6 @@
       {
         "pagePath": "pages/pk/index",
         "text": "星灵PK"
-      },
-      {
-        "pagePath": "pages/shop/index",
-        "text": "集市"
       },
       {
         "pagePath": "pages/my/index",

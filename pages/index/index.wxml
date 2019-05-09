@@ -1,17 +1,36 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">星灵计算器</view>
 </cu-custom>
-<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
-  <view class="flex justify-center">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
-    <block wx:else>
-      <view class='text-center'>
-        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-        <view class="padding">{{userInfo.nickName}}</view>
-      </view>
-    </block>
+<view class="bg-white content radius shadow shadow-lg">
+  <view class="cu-bar justify-center bg-white">
+    <view class="action border-title">
+      <text class="text-xl text-bold text-blue">星灵计算器使用步骤</text>
+      <text class="bg-gradual-blue" style="width:3rem"></text>
+    </view>
   </view>
-</view>
-<view class="text-center margin-top">
-  <text class="text-grey text-xl">{{motto}}</text>
+  <view class="bg-white padding">
+      <view class="cu-steps">
+        <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+          <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text> {{item.name}}
+        </view>
+      </view>
+  </view>
+  <form>
+	<view class="cu-form-group margin-top">
+		<view class="title">资质</view>
+		<picker bindchange="ZiZhiChange" value="{{XingLingData.zizhi}}" range="{{zizhi}}" range-key="type">
+			<view class="picker">
+				{{XingLingData.zizhi?zizhi[XingLingData.zizhi].type:'请选择资质'}}
+			</view>
+		</picker>
+	</view>
+  	<view class="cu-form-group margin-top">
+		<view class="title">成长</view>
+		<picker bindchange="ChengZhangChange" value="{{XingLingData.chengzhang}}" range="{{chengzhang}}"  range-key="type">
+			<view class="picker">
+				{{XingLingData.chengzhang?chengzhang[XingLingData.chengzhang].type:'请选择成长'}}
+			</view>
+		</picker>
+	</view>
+  </form>
 </view>

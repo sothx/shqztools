@@ -4,12 +4,91 @@ const app = getApp()
 
 Page({
   data: {
+    num: 0,
+    XingLingData: {
+      zizhi: '',
+      chengzhang: ''
+    },
+    numList: [{
+      name: '填写'
+    }, {
+      name: '计算'
+      }],
+    zizhi: [
+      {
+        type: '普通',
+        PCT: 0.5
+      },
+      {
+        type: '优良',
+        PCT: 1
+      },
+      {
+        type: '精致',
+        PCT: 1.5
+      },
+      {
+        type: '传说',
+        PCT: 2
+      },
+      {
+        type: '神工',
+        PCT: 3
+      },
+      {
+        type: '逆天',
+        PCT: 5
+      }
+    ],
+    chengzhang: [
+      {
+        type: '普通',
+        PCT: 0.5
+      },
+      {
+        type: '优良',
+        PCT: 1
+      },
+      {
+        type: '精致',
+        PCT: 1.5
+      },
+      {
+        type: '传说',
+        PCT: 2
+      },
+      {
+        type: '神工',
+        PCT: 3
+      },
+      {
+        type: '逆天',
+        PCT: 5
+      }
+    ],
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     motto: 'Hi 开发者！',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  ZiZhiChange(e) {
+    console.log(e);
+    this.setData({
+      'XingLingData.zizhi': e.detail.value
+    })
+  },
+  ChengZhangChange(e) {
+    console.log(e);
+    this.setData({
+      'XingLingData.chengzhang': e.detail.value
+    })
+  },
+  numSteps() {
+    this.setData({
+      num: this.data.num == this.data.numList.length - 1 ? 0 : this.data.num + 1
+    })
   },
   //事件处理函数
   bindViewTap: function() {

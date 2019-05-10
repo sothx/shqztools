@@ -10,7 +10,7 @@ Page({
     }, {
       name: '开始计算'
     }],
-    pingji: '',
+    pinzhi: '',
     XingLingData: {},
     resultData:{
       shengmingzhi:'',
@@ -64,9 +64,9 @@ Page({
       duration: 2000
     })
   },
-  setPingJi () {
+  setPinZhi () {
     let _pingji = ''
-    switch (Number(this.data.XingLingData.qianghua)) {
+    switch (Number(this.data.XingLingData.pinzhi)) {
       case 0:
         _pingji = '普通'
         break
@@ -87,7 +87,7 @@ Page({
         break
     }
     this.setData({
-      pingji: _pingji
+      pinzhi: _pingji
     })
   },
   goIndex () {
@@ -136,7 +136,7 @@ Page({
       XingLingData: JSON.parse(_XingLingData)
     })
     this.countFunc()
-    this.setPingJi()
+    this.setPinZhi()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -145,10 +145,12 @@ Page({
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let _data = e.detail.value
+    // 补充星灵品质
+    _data.pinzhi = this.data.XingLingData.pinzhi
     // e.detail.value.forEach(func)
     let _errStore = []
     for (let i in _data) {
-      if (i !== 'xingjiang' && _data[i] === '') {
+      if (i !== 'xingjiang' && i !== 'pinzhi' && _data[i] === '') {
         _errStore.push(this.data.errData[i])
       }
     }
@@ -160,7 +162,7 @@ Page({
     } else {
       wx.setStorage({
         key: 'xinglingData',
-        data: JSON.stringify(e.detail.value)
+        data: JSON.stringify(_data)
       })
       wx.navigateTo({
         url: '/pages/attribute/index'

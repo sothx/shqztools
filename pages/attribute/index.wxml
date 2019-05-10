@@ -21,7 +21,7 @@
     <view class="bg-blue.light userCard">
       <view class='text-center'>
         <view class="padding-tb-xs">强化等级:{{ XingLingData.qianghua }}级</view>
-        <view class="padding-bottom-xs">星灵评级:{{pingji}}</view>
+        <view class="padding-bottom-xs">星灵评级:{{pinzhi}}</view>
       </view>
         <view class="result padding-tb">
           <view class="cu-capsule round padding-bottom-sm">

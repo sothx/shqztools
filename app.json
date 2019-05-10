@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/attribute/index",
     "pages/index/index",
+    "pages/attribute/index",
     "pages/my/index",
     "pages/pk/index"
   ],

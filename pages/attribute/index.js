@@ -10,6 +10,7 @@ Page({
     }, {
       name: '开始计算'
     }],
+    pingji: '',
     XingLingData: {},
     resultData:{
       shengmingzhi:'',
@@ -63,6 +64,30 @@ Page({
       duration: 2000
     })
   },
+  setPingJi () {
+    let _pingji = ''
+    switch (this.data.XingLingData.pinzhi) {
+      case 0:
+        _pingji = '普通'
+        break
+      case 1:
+        _pingji = '优良'
+        break
+      case 2:
+        _pingji = '精致'
+        break
+      case 3:
+        _pingji = '传说'
+        break
+      case 4:
+        _pingji = '神工'
+        break
+      case 5:
+        _pingji = '逆天'
+        break
+    }
+    return _pingji
+  },
   goIndex () {
     wx.switchTab({
       url: '/pages/index/index'
@@ -106,7 +131,8 @@ Page({
   onLoad: function (options) {
     let _XingLingData = wx.getStorageSync('xinglingData')
     this.setData({
-      XingLingData: JSON.parse(_XingLingData)
+      XingLingData: JSON.parse(_XingLingData),
+      pingji: this.setPingJi()
     })
     this.countFunc()
   },

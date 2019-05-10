@@ -66,7 +66,7 @@ Page({
   },
   setPingJi () {
     let _pingji = ''
-    switch (this.data.XingLingData.pinzhi) {
+    switch (Number(this.data.XingLingData.qianghua)) {
       case 0:
         _pingji = '普通'
         break
@@ -86,7 +86,9 @@ Page({
         _pingji = '逆天'
         break
     }
-    return _pingji
+    this.setData({
+      pingji: _pingji
+    })
   },
   goIndex () {
     wx.switchTab({
@@ -131,8 +133,7 @@ Page({
   onLoad: function (options) {
     let _XingLingData = wx.getStorageSync('xinglingData')
     this.setData({
-      XingLingData: JSON.parse(_XingLingData),
-      pingji: this.setPingJi()
+      XingLingData: JSON.parse(_XingLingData)
     })
     this.countFunc()
     this.setPingJi()

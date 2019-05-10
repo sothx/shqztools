@@ -1,0 +1,98 @@
+<!--pages/attribute/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">星灵计算器</view>
+</cu-custom>
+<view class="bg-blue.light body">
+<view>
+  <view class="bg-blue.light padding">
+      <view class="cu-steps">
+        <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+          <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text> {{item.name}}
+        </view>
+      </view>
+</view>
+<view class="cu-bar justify-center bg-blue.light">
+    <view class="action border-title">
+      <text class="text-xl text-bold text-blue">附加在人物身上的属性:</text>
+      <text class="bg-gradual-blue" style="width:3rem"></text>
+    </view>
+  </view> 
+    <view class="bg-blue.light userCard">
+      <view class='text-center'>
+        <view class="padding-tb-xs">强化等级:10级</view>
+        <view class="padding-bottom-xs">星灵评级:逆天</view>
+      </view>
+        <view class="result padding-tb">
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-green ">
+              生命值
+            </view>
+            <view class="cu-tag line-green">
+              {{resultData.shengmingzhi }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-cyan ">
+              技能值
+            </view>
+            <view class="cu-tag line-cyan">
+              {{resultData.jinengzhi }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-red ">
+              攻击力
+            </view>
+            <view class="cu-tag line-red">
+              {{resultData.gongjili }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-brown ">
+              防御力
+            </view>
+            <view class="cu-tag line-brown">
+              {{resultData.fangyuli }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-mauve ">
+              灵巧度
+            </view>
+            <view class="cu-tag line-mauve">
+              {{resultData.lingqiaodu }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-pink ">
+              命中率
+            </view>
+            <view class="cu-tag line-pink">
+              {{resultData.mingzhonglv }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-blue ">
+              精神力
+            </view>
+            <view class="cu-tag line-blue">
+              {{resultData.jingshenli }}
+            </view>
+          </view>
+          <view class="cu-capsule round padding-bottom-sm">
+            <view class="cu-tag bg-grey ">
+              闪避率
+            </view>
+            <view class="cu-tag line-grey">
+              {{resultData.shanbilv }}
+            </view>
+    </view>
+  </view>
+  <view class="cu-bar btn-group">
+    <button class="cu-btn bg-red shadow-blur round">再次填写</button>
+    <button class="cu-btn bg-blue shadow-blur round">保存星灵</button>
+  </view>
+    </view>
+</view>
+</view>

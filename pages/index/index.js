@@ -9,7 +9,8 @@ Page({
       zizhi: '',
       chengzhang: '',
       qianghua: '',
-      pinzhi: ''
+      pinzhi: '',
+      xingjiang: false
     },
     qianghuaStatus: true,
     qianghuaMessage: '未选择资质/成长',
@@ -60,6 +61,22 @@ Page({
         PCT: 5
       }
     ],
+    errData: {
+      zizhi: '资质为空',
+      chengzhang: '成长为空',
+      qianghua: '强化等级为空',
+      liliangzizhi: '力量资质为空',
+      liliangqianlidianshu: '力量潜力点数为空',
+      tizhizizhi: '体质资质为空',
+      tizhiqianlidianshu: '体质潜力点数为空',
+      xinlizizhi: '心力资质为空',
+      xinliqianlidianshu: '心力潜力点数为空',
+      nailizizhi: '耐力资质为空',
+      nailiqianlidianshu: '耐力潜力点数为空',
+      minjiezizhi: '敏捷资质为空',
+      minjieqianlidianshu: '敏捷潜力点数为空'
+    },
+    errStore:[],
     numList: [{
       name: '填写信息'
     }, {
@@ -117,12 +134,60 @@ Page({
         PCT: 5
       }
     ],
+    modal: false,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     motto: 'Hi 开发者！',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    let _data = e.detail.value
+    // e.detail.value.forEach(func)
+    let _errStore = []
+    for (let i in _data) {
+      if (i !== 'xingjiang' && _data[i] === '') {
+        _errStore.push(this.data.errData[i])
+      }
+    }
+    if(_errStore.length !== 0) {
+      this.setData({
+        errStore: _errStore
+      })
+      this.showModal()
+    } else {
+      wx.setStorage({
+        key: 'xinglingData',
+        data: JSON.stringify(e.detail.value)
+      })
+      wx.navigateTo({
+        url: '/pages/attribute/index'
+      })
+    }
+  },
+  formReset() {
+    console.log('form发生了reset事件')
+    this.setData({
+      'XingLingData.xingjiang': false,
+      'XingLingData.zizhi': '',
+      'XingLingData.chengzhang': '',
+      'XingLingData.qianghua': '',
+      'XingLingData.pinzhi': '',
+      qianghuaStatus: true,
+      'qianghuaMessage': '未选择资质/成长'
+    })
+  },
+  showModal () {
+    this.setData({
+      modal: true
+    })
+  },
+  hideModal () {
+    this.setData({
+      modal: false
+    })
   },
   ZiZhiChange(e) {
     console.log(e);
@@ -192,6 +257,11 @@ Page({
     this.setData({
       qianghuaStatus: false,
       'XingLingData.pinzhi': arr.sort()[0]
+    })
+  },
+  XingjiangChange(e) {
+    this.setData({
+      'XingLingData.xingjiang': e.detail.value
     })
   },
   numSteps() {

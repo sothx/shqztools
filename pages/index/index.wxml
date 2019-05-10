@@ -15,30 +15,101 @@
         </view>
       </view>
   </view>
-  <form>
+  <form  bindsubmit="formSubmit" bindreset="formReset">
 	<view class="cu-form-group margin-top">
 		<view class="title">资质</view>
-		<picker bindchange="ZiZhiChange" value="{{XingLingData.zizhi}}" range="{{zizhi}}" range-key="type">
+		<picker name="zizhi" bindchange="ZiZhiChange" value="{{XingLingData.zizhi}}" range="{{zizhi}}" range-key="type">
 			<view class="picker">
 				{{XingLingData.zizhi?zizhi[XingLingData.zizhi].type:'请选择资质'}}
 			</view>
 		</picker>
 	</view>
-  <view class="cu-form-group margin-top">
+  <view class="cu-form-group">
 		<view class="title">成长</view>
-		<picker bindchange="ChengZhangChange" value="{{XingLingData.chengzhang}}" range="{{chengzhang}}"  range-key="type">
+		<picker  name="chengzhang" bindchange="ChengZhangChange" value="{{XingLingData.chengzhang}}" range="{{chengzhang}}"  range-key="type">
 			<view class="picker">
 				{{XingLingData.chengzhang?chengzhang[XingLingData.chengzhang].type:'请选择成长'}}
 			</view>
 		</picker>
 	</view>
-  <view class="cu-form-group margin-top">
+  <view class="cu-form-group">
 		<view class="title">强化等级</view>
-		<picker disabled='{{qianghuaStatus}}' bindchange="QiangHuaChange" value="{{XingLingData.qianghua}}" range="{{qianghua}}" range-key="type">
+		<picker name="qianghua" disabled='{{qianghuaStatus}}' bindchange="QiangHuaChange" value="{{XingLingData.qianghua}}" range="{{qianghua}}" range-key="type">
 			<view class="picker {{ qianghuaStatus?'text-red':'' }}">
 				{{XingLingData.qianghua?qianghua[XingLingData.qianghua].type:qianghuaMessage}}
 			</view>
 		</picker>
 	</view>
+  	<view class="cu-form-group">
+		<view class="title">是否星将</view>
+		<switch name="xingjiang" class="blue sm" checked="{{XingLingData.xingjiang}}" bindchange="XingjiangChange"></switch>
+	</view>
+  <view class="flex shuxingBorder">
+    <view class="cu-form-group">
+      <view class="title">力量资质</view>
+      <input name="liliangzizhi" maxlength="4" type="digit" placeholder="如3.02"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">力量潜力点数</view>
+      <input name="liliangqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+    </view>
+  </view>
+  <view class="flex shuxingBorder">
+    <view class="cu-form-group">
+      <view class="title">体质资质</view>
+      <input name="tizhizizhi" maxlength="4" type="digit" placeholder="如3.02"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">体质潜力点数</view>
+      <input name="tizhiqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+    </view>
+  </view>
+  <view class="flex shuxingBorder">
+    <view class="cu-form-group">
+      <view class="title">心力资质</view>
+      <input name="xinlizizhi" maxlength="4" type="digit" placeholder="如3.02"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">心力潜力点数</view>
+      <input name="xinliqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+    </view>
+  </view>
+  <view class="flex shuxingBorder">
+    <view class="cu-form-group">
+      <view class="title">耐力资质</view>
+      <input name="nailizizhi" maxlength="4" type="digit" placeholder="如3.02"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">耐力潜力点数</view>
+      <input name="nailiqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+    </view>
+  </view>
+  <view class="flex shuxingBorder">
+    <view class="cu-form-group">
+      <view class="title">敏捷资质</view>
+      <input name="minjiezizhi" maxlength="4" type="digit" placeholder="如3.02"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">敏捷潜力点数</view>
+      <input name="minjieqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+    </view>
+  </view>
+  <view class="cu-bar btn-group">
+    <button form-type="reset" class="cu-btn bg-red shadow-blur round">清空</button>
+    <button form-type="submit" class="cu-btn bg-blue shadow-blur round">下一步</button>
+  </view>
   </form>
+  <view  bindtap="hideModal" class="cu-modal {{modal?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">错误提醒</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <view wx:for="{{errStore}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+  </view>
+</view>
 </view>

@@ -1,4 +1,13 @@
 .content{
   width:100%;
-  height: calc(100vh - 62px)
+  height: 100%;
+}
+.flex{
+  display: flex;
+}
+.shuxingBorder {
+  border-top:1rpx solid #eee;
+}
+.shuxingBorder>.cu-form-group{
+  border:0;
 }

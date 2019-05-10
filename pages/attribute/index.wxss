@@ -1,0 +1,15 @@
+/* pages/attribute/index.wxss */
+.cu-capsule+.cu-capsule{
+  margin:0;
+}
+.result{
+  width:750rpx;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  align-items:center;
+  align-content:center;
+}
+.body{
+  height: 90vh;
+}

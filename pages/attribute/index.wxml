@@ -90,8 +90,8 @@
     </view>
   </view>
   <view class="cu-bar btn-group">
-    <button class="cu-btn bg-red shadow-blur round">再次填写</button>
-    <button class="cu-btn bg-blue shadow-blur round">保存星灵</button>
+    <button bindtap="goIndex" class="cu-btn bg-red shadow-blur round">再次填写</button>
+    <button bindtap="saveXingLing" class="cu-btn bg-blue shadow-blur round">保存星灵</button>
   </view>
     </view>
 </view>

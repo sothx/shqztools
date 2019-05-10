@@ -56,6 +56,18 @@ Page({
       'resultData.shanbilv': _shanbilv
     })
   },
+  saveXingLing () {
+    wx.showToast({
+      title: '功能暂未开放',
+      icon: 'none',
+      duration: 2000
+    })
+  },
+  goIndex () {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
   perCountFunc: function () {
     let _ziZhiPer = ''
     let _chengzhangPer = ''

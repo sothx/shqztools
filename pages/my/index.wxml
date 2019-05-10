@@ -10,7 +10,10 @@
         <text>授权后可使用星源灵宠本地保存功能</text>
   </view>
 </view>
-<view wx:else class="bg-white radius shadow shadow-lg">
+<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+  <text>此功能尚在开发中，请耐心等待</text>
+</view>
+<!-- <view wx:else class="bg-white radius shadow shadow-lg">
   <view class="padding-tb-74 bg-gradual-blue userCard">
     <view class='text-center'>
       <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
@@ -41,4 +44,4 @@
     </view>
   </view>
 </view>
-</view>
+</view> -->

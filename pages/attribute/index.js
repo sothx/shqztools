@@ -12,6 +12,7 @@ Page({
     }],
     pinzhi: '',
     XingLingData: {},
+    shareStatus: false,
     resultData:{
       shengmingzhi:'',
       jinengzhi: '',
@@ -131,7 +132,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _XingLingData = wx.getStorageSync('xinglingData')
+    console.log(options)
+    let _XingLingData = ''
+    if (Object.keys(options).length !== 0 && options.type === 'share') {
+      _XingLingData = options.data
+      this.setData({
+        shareStatus: true
+      })
+    } else {
+      _XingLingData = wx.getStorageSync('xinglingData')
+    }
     this.setData({
       XingLingData: JSON.parse(_XingLingData)
     })
@@ -184,6 +194,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '这是什么神仙星灵？',
+      path: '/pages/attribute/index?type=share&data=' + JSON.stringify(this.data.XingLingData)
+    }
   }
 })

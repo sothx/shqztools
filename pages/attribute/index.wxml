@@ -1,8 +1,8 @@
 <!--pages/attribute/index.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{!shareStatus}}">
   <view slot="backText">返回</view>
   <view slot="content">星灵计算器</view>
-</cu-custom>
+</cu-custom>     
 <view class="bg-blue.light body">
 <view>
   <view class="bg-blue.light padding">
@@ -17,11 +17,34 @@
       <text class="text-xl text-bold text-blue">附加在人物身上的属性:</text>
       <text class="bg-gradual-blue" style="width:3rem"></text>
     </view>
-  </view> 
+  </view>
     <view class="bg-blue.light userCard">
-      <view class='text-center'>
-        <view class="padding-tb-xs">强化等级:{{ XingLingData.qianghua }}级</view>
-        <view class="padding-bottom-xs">星灵评级:{{pinzhi}}</view>
+      <view class='text-center bg-cyan.light'>
+        <view class="padding-tb-xs">{{ XingLingData.xingjiang ? '已开启星将职业属性加成10%':'非星将职业无加成' }}</view>
+        <view  class="padding-bottom-xs shuxingGroup">
+            <view class="col-6">强化等级:{{ XingLingData.qianghua }}级</view>
+            <view class="col-6">星灵评级:{{pinzhi}}</view>
+        </view>
+        <view  class="padding-bottom-xs shuxingGroup">
+            <view class="col-6">力量资质:{{ XingLingData.liliangzizhi }}</view>
+            <view class="col-6">力量潜力点数:{{ XingLingData.liliangqianlidianshu }}点</view>
+        </view>
+        <view  class="padding-bottom-xs shuxingGroup">
+            <view class="col-6">体质资质:{{ XingLingData.tizhizizhi }}</view>
+            <view class="col-6">体质潜力点数:{{ XingLingData.tizhiqianlidianshu }}点</view>
+        </view>
+        <view  class="padding-bottom-xs shuxingGroup">
+            <view class="col-6">心力资质:{{ XingLingData.xinlizizhi }}</view>
+            <view class="col-6">心力潜力点数:{{ XingLingData.xinliqianlidianshu }}点</view>
+        </view>
+        <view  class="padding-bottom-xs shuxingGroup">
+            <view class="col-6">耐力资质:{{ XingLingData.nailizizhi }}</view>
+            <view class="col-6">耐力潜力点数:{{ XingLingData.nailiqianlidianshu }}点</view>
+        </view>
+        <view  class="padding-bottom-xs shuxingGroup">
+            <view class="col-6">敏捷资质:{{ XingLingData.minjiezizhi }}</view>
+            <view class="col-6">敏捷潜力点数:{{ XingLingData.minjieqianlidianshu }}点</view>
+        </view>
       </view>
         <view class="result padding-tb">
           <view class="cu-capsule round padding-bottom-sm">
@@ -90,8 +113,12 @@
     </view>
   </view>
   <view class="cu-bar btn-group">
+    <button open-type="share" class="cu-btn bg-blue shadow-blur round">分享给好友</button>
+    <button bindtap="goIndex" wx:if="{{shareStatus}}" class="cu-btn bg-red shadow-blur round">返回首页</button>
+  </view>
+  <view wx:if="{{!shareStatus}}" class="cu-bar btn-group padding-bottom">
     <button bindtap="goIndex" class="cu-btn bg-red shadow-blur round">再次填写</button>
-    <button bindtap="saveXingLing" class="cu-btn bg-blue shadow-blur round">保存星灵</button>
+    <button bindtap="goIndex" class="cu-btn bg-green shadow-blur round">保存星灵</button>
   </view>
     </view>
 </view>

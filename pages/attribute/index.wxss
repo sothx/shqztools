@@ -9,7 +9,17 @@
   flex-wrap:wrap;
   align-items:center;
   align-content:center;
+  justify-content: flex-end
 }
 .body{
   height: 90vh;
+}
+.col-6{
+  width:375rpx;
+}
+.shuxingGroup{
+  display: flex;
+  box-sizing: border-box;
+  padding-left:120rpx;
+  padding-right:120rpx;
 }

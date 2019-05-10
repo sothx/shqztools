@@ -4,7 +4,7 @@
 <view class="bg-white content radius shadow shadow-lg">
   <view class="cu-bar justify-center bg-white">
     <view class="action border-title">
-      <text class="text-xl text-bold text-blue">星灵计算器使用步骤</text>
+      <text class="text-xl text-bold text-blue">星灵计算器使用指引</text>
       <text class="bg-gradual-blue" style="width:3rem"></text>
     </view>
   </view>
@@ -24,11 +24,19 @@
 			</view>
 		</picker>
 	</view>
-  	<view class="cu-form-group margin-top">
+  <view class="cu-form-group margin-top">
 		<view class="title">成长</view>
 		<picker bindchange="ChengZhangChange" value="{{XingLingData.chengzhang}}" range="{{chengzhang}}"  range-key="type">
 			<view class="picker">
 				{{XingLingData.chengzhang?chengzhang[XingLingData.chengzhang].type:'请选择成长'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">强化等级</view>
+		<picker disabled='{{qianghuaStatus}}' bindchange="QiangHuaChange" value="{{XingLingData.qianghua}}" range="{{qianghua}}" range-key="type">
+			<view class="picker {{ qianghuaStatus?'text-red':'' }}">
+				{{XingLingData.qianghua?qianghua[XingLingData.qianghua].type:qianghuaMessage}}
 			</view>
 		</picker>
 	</view>

@@ -7,12 +7,63 @@ Page({
     num: 0,
     XingLingData: {
       zizhi: '',
-      chengzhang: ''
+      chengzhang: '',
+      qianghua: '',
+      pinzhi: ''
     },
+    qianghuaStatus: true,
+    qianghuaMessage: '未选择资质/成长',
+    qianghua: [],
+    qianghuaList: [
+      {
+        type: '无强化',
+        PCT: 0
+      },
+      {
+        type: '一级',
+        PCT: 0.5
+      },
+      {
+        type: '二级',
+        PCT: 1
+      },
+      {
+        type: '三级',
+        PCT: 1.5
+      }, 
+      {
+        type: '四级',
+        PCT: 2
+      },
+      {
+        type: '五级',
+        PCT: 2.5
+      },
+      {
+        type: '六级',
+        PCT: 3
+      },
+      {
+        type: '七级',
+        PCT: 3.5
+      },
+      {
+        type: '八级',
+        PCT: 4
+      },
+      {
+        type: '九级',
+        PCT: 4.5
+      },
+      {
+        type: '满级',
+        PCT: 5
+      }
+    ],
     numList: [{
-      name: '填写'
+      name: '填写信息'
     }, {
-      name: '计算'
+      name: '开始计算'
       }],
     zizhi: [
       {
@@ -76,13 +127,71 @@ Page({
   ZiZhiChange(e) {
     console.log(e);
     this.setData({
-      'XingLingData.zizhi': e.detail.value
+      'XingLingData.zizhi': e.detail.value,
+      'XingLingData.qianghua': 0
     })
+    this.setQianghuaPicker()
   },
   ChengZhangChange(e) {
     console.log(e);
     this.setData({
-      'XingLingData.chengzhang': e.detail.value
+      'XingLingData.chengzhang': e.detail.value,
+      'XingLingData.qianghua': 0
+    })
+    this.setQianghuaPicker()
+  },
+  QiangHuaChange(e) {
+    console.log(e);
+    this.setData({
+      'XingLingData.qianghua': e.detail.value
+    })
+  },
+  setQianghuaPicker() {
+    if (this.data.XingLingData.zizhi !== '' && this.data.XingLingData.chengzhang !== '') {
+      console.log(this.data.XingLingData.zizhi, this.data.XingLingData.chengzhang)
+      // 设置品质
+      this.setPinZhi()
+      // 设置强化数据
+      let _qianghuaList = this.data.qianghuaList.filter((v,i,a) => {
+        // 普通星灵强化等级上限为2级
+        // 优良星灵强化等级上限为4级
+        // 精致星灵强化等级上限为6级
+        // 传说星灵强化等级上限为8级
+        // 神工/逆天星灵强化等级上限为10级
+        console.log(this.data.XingLingData.pinzhi)
+        let _pinzhi = Number(this.data.XingLingData.pinzhi)
+        if (_pinzhi === 0) {
+          return i <= 2
+        } else if (_pinzhi === 1) {
+          return i <= 4
+        } else if (_pinzhi === 2) {
+          return i <= 6
+        } else if (_pinzhi === 3) {
+          return i <= 8
+        } else {
+          return true
+        }
+      })
+      this.setData({
+        'qianghua': _qianghuaList,
+        'qianghuaMessage': '请选择强化等级'
+      })
+    } else {
+      this.setData({
+        qianghuaStatus: true,
+        'XingLingData.pinzhi': '',
+        'qianghuaMessage': '未选择资质/成长'
+      })
+    }
+  },
+  setPinZhi() {
+    let arr = [
+      this.data.XingLingData.zizhi,
+      this.data.XingLingData.chengzhang
+    ]
+    this.setData({
+      qianghuaStatus: false,
+      'XingLingData.pinzhi': arr.sort()[0]
     })
   },
   numSteps() {

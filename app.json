@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/attribute/index",
     "pages/my/index",
-    "page/shop/index",
+    "pages/attribute/index",
+    "pages/index/index",
     "pages/pk/index"
   ],
   "window": {
@@ -14,18 +13,19 @@
     "navigationBarTextStyle": "white"
   },
  "tabBar": {
+   "selectedColor": "#0081FF",
    "list": [
      {
        "pagePath": "pages/index/index",
-       "text": "计算器"
-     },
-     {
-       "pagePath": "pages/pk/index",
-       "text": "星灵PK"
+       "text": "计算器",
+       "iconPath": "statics/icons/home.png",
+       "selectedIconPath": "statics/icons/home.png"
      },
      {
        "pagePath": "pages/my/index",
-       "text": "我的星灵"
+       "text": "我的星灵",
+       "iconPath": "statics/icons/my.png",
+       "selectedIconPath": "statics/icons/my.png"
      }
    ]
  },

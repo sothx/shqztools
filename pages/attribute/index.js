@@ -5,11 +5,63 @@ Page({
    * 页面的初始数据
    */
   data: {
+    saveDialog: false,
+    nameDialog: false,
     numList: [{
       name: '填写信息'
     }, {
       name: '开始计算'
     }],
+    avatarList: [
+      {
+        name: '1',
+        value: '/statics/avatar/1.png',
+        checked: false
+      },
+      {
+        name: '2',
+        value: '/statics/avatar/2.png',
+        checked: false
+      },
+      {
+        name: '3',
+        value: '/statics/avatar/3.png',
+        checked: false
+      },
+      {
+        name: '4',
+        value: '/statics/avatar/4.png',
+        checked: false
+      },
+      {
+        name: '5',
+        value: '/statics/avatar/5.png',
+        checked: false
+      },
+      {
+        name: '6',
+        value: '/statics/avatar/6.png',
+        checked: false
+      },
+      {
+        name: '7',
+        value: '/statics/avatar/7.png',
+        checked: false
+      },
+      {
+        name: '8',
+        value: '/statics/avatar/8.png',
+        checked: false
+      }
+    ],
+    saveXingLingData: {
+      avatar: '',
+      name: ''
+    },
+    resetXingLingData: {
+      avatar: '',
+      name: ''
+    },
     pinzhi: '',
     XingLingData: {},
     shareStatus: false,
@@ -23,6 +75,84 @@ Page({
       jingshenli: '',
       shanbilv: ''
     }
+  },
+  radioChange (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    this.setData({
+      'saveXingLingData.avatar': e.detail.value
+    })
+  },
+  hideSave () {
+    let _avatarList = this.data.avatarList
+    for (let i in _avatarList) {
+      _avatarList.checked = false
+    }
+    this.setData({
+      saveDialog: false,
+      avatarList: _avatarList,
+      'resetXingLingData.name': ''
+    })
+  },
+  goSave (e) {
+    let _fromData = e.detail.value
+    let _avatarList = this.data.avatarList
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    if (_fromData.xinglingName === '') {
+      wx.showToast({
+        title: '星灵名字为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    } else if (_fromData.avatar === '') {
+      wx.showToast({
+        title: '请选择一个星灵头像',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    } else {
+      for (let i in _avatarList) {
+        _avatarList.checked = false
+      }
+      this.setData({
+        'saveXingLingData.name': _fromData.xinglingName,
+        'saveXingLingData.avatar': _fromData.avatar,
+        'resetXingLingData.name': '',
+         avatarList: _avatarList,
+        saveDialog: false
+      })
+      if (wx.getStorageSync('UserXingLingData') === '') {
+        console.log('该用户本地星灵数据为空')
+        let _arr = []
+        let _xinglingData = JSON.parse(wx.getStorageSync('xinglingData'))
+        _xinglingData.name = this.data.saveXingLingData.name
+        _xinglingData.avatar = this.data.saveXingLingData.avatar
+        _xinglingData.time = new Date()
+        _arr.push(_xinglingData)
+        wx.setStorageSync('UserXingLingData', JSON.stringify(_arr))
+      } else {
+        console.log('该用户本地星灵数据不为空')
+        let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
+        let _xinglingData = JSON.parse(wx.getStorageSync('xinglingData'))
+        _xinglingData.name = this.data.saveXingLingData.name
+        _xinglingData.avatar = this.data.saveXingLingData.avatar
+        _xinglingData.time = new Date()
+        _UserXingLingData.push(_xinglingData)
+        wx.setStorageSync('UserXingLingData', JSON.stringify(_UserXingLingData))
+      }
+      wx.showToast({
+        title: '保存成功',
+        icon: 'success',
+        duration: 2000
+      })
+      this.goMy()
+    }
+  },
+  goMy () {
+    wx.switchTab({
+      url: '/pages/my/index'
+    })
   },
   countFunc: function () {
     //是否星将加成
@@ -59,10 +189,13 @@ Page({
     })
   },
   saveXingLing () {
-    wx.showToast({
-      title: '功能暂未开放',
-      icon: 'none',
-      duration: 2000
+    // wx.showToast({
+    //   title: '功能暂未开放',
+    //   icon: 'none',
+    //   duration: 2000
+    // })
+    this.setData({
+      saveDialog: true
     })
   },
   setPinZhi () {
@@ -138,6 +271,11 @@ Page({
       _XingLingData = options.data
       this.setData({
         shareStatus: true
+      })
+    } else if (Object.keys(options).length !== 0 && options.type === 'view') {
+      _XingLingData = options.data
+      this.setData({
+        shareStatus: false
       })
     } else {
       _XingLingData = wx.getStorageSync('xinglingData')

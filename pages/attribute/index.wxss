@@ -23,3 +23,9 @@
   padding-left:120rpx;
   padding-right:120rpx;
 }
+.xinglingAvatarList radio{
+  background-color:transparent;
+}
+.xinglingAvatarList .cu-tag.badge {
+  padding:0;
+}

@@ -7,8 +7,25 @@ Page({
    */
   data: {
     userInfo: {},
+    UserXingLingData: [],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  goView (event) {
+    let _index = event.currentTarget.dataset.index
+    wx.navigateTo({
+      url: '/pages/attribute/index?type=view&data=' + JSON.stringify(this.data.UserXingLingData[_index])
+    })
+  },
+  goDelete (event) {
+    let _index = event.currentTarget.dataset.index
+    let _UserXingLingData = this.data.UserXingLingData.filter((v,i,a) => {
+      return i !== _index
+    })
+    this.setData({
+      UserXingLingData: _UserXingLingData
+    })
+    wx.setStorageSync('UserXingLingData', JSON.stringify(_UserXingLingData))
   },
     // 获取用户信息
     getUserInfo: function(e) {
@@ -65,6 +82,12 @@ Page({
           hasUserInfo: true
         })
       }
+    }
+    let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
+    if (_UserXingLingData !== '') {
+      this.setData({
+        UserXingLingData: _UserXingLingData
+      })
     }
   },
 

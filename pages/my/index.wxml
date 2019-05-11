@@ -10,10 +10,7 @@
         <text>授权后可使用星源灵宠本地保存功能</text>
   </view>
 </view>
-<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
-  <text>此功能尚在开发中，请耐心等待</text>
-</view>
-<!-- <view wx:else class="bg-white radius shadow shadow-lg">
+<view wx:else class="bg-white radius shadow shadow-lg">
   <view class="padding-tb-74 bg-gradual-blue userCard">
     <view class='text-center'>
       <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
@@ -25,23 +22,23 @@
       <text class="bg-gradual-blue" style="width:3rem"></text>
     </view>
   </view>
-    <view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{12}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
-      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{UserXingLingData}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
       <view class="content">
-        <view class="text-grey">星灵名称</view>
+        <view class="text-grey">{{item.name}}</view>
         <view class="text-gray text-sm">
-          <text class="cuIcon-favorfill text-red"></text> 逆天的星源灵宠 </view>
+          <text class="cuIcon-favorfill text-red"></text> 第{{ index + 1 }}个星源灵宠 </view>
       </view>
       <view class="action">
-        <view class="text-grey text-xs">2019-5-8</view>
-        <view class="cu-tag round bg-grey sm">22:20</view>
+        <view class="text-grey text-xs">存储状态</view>
+        <view class="cu-tag round bg-grey sm">本地存储</view>
       </view>
       <view class="move">
-        <view class="bg-grey">查看</view>
-        <view class="bg-red">删除</view>
+        <view bindtap='goView' data-index="{{index}}" class="bg-grey">查看</view>
+        <view bindtap='goDelete' data-index="{{index}}" class="bg-red">删除</view>
       </view>
     </view>
   </view>
 </view>
-</view> -->
+</view>

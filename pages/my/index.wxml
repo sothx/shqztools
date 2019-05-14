@@ -23,7 +23,7 @@
     </view>
   </view>
   <view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{UserXingLingData}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+    <view  data-index="{{index}}"   bindtap='goView'  class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{UserXingLingData}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
       <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
       <view class="content">
         <view class="text-grey">{{item.name}}</view>
@@ -35,8 +35,8 @@
         <view class="cu-tag round bg-grey sm">本地存储</view>
       </view>
       <view class="move">
-        <view bindtap='goView' data-index="{{index}}" class="bg-grey">查看</view>
-        <view bindtap='goDelete' data-index="{{index}}" class="bg-red">删除</view>
+        <view catchtap='goView' data-index="{{index}}" class="bg-grey">查看</view>
+        <view catchtap='goDelete' data-index="{{index}}" class="bg-red">删除</view>
       </view>
     </view>
   </view>

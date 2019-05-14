@@ -68,6 +68,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (wx.getStorageSync('UserXingLingData') !== '') {
+      let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
+      this.setData({
+        UserXingLingData: _UserXingLingData
+      })
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -83,12 +89,6 @@ Page({
         })
       }
     }
-    let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
-    if (_UserXingLingData !== '') {
-      this.setData({
-        UserXingLingData: _UserXingLingData
-      })
-    }
   },
 
   /**
@@ -102,7 +102,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (wx.getStorageSync('UserXingLingData') !== '') {
+      let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
+      this.setData({
+        UserXingLingData: _UserXingLingData
+      })
+    }
   },
 
   /**

@@ -15,42 +15,42 @@ Page({
     avatarList: [
       {
         name: '1',
-        value: '/statics/avatar/1.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo3o2t2jj304g04gjrs.jpg',
         checked: false
       },
       {
         name: '2',
-        value: '/statics/avatar/2.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo4sf6rhj305k04g3yp.jpg',
         checked: false
       },
       {
         name: '3',
-        value: '/statics/avatar/3.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo587fl6j305s04gglw.jpg',
         checked: false
       },
       {
         name: '4',
-        value: '/statics/avatar/4.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo5h5z5ej304004gjri.jpg',
         checked: false
       },
       {
         name: '5',
-        value: '/statics/avatar/5.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo63naytj306804gt9c.jpg',
         checked: false
       },
       {
         name: '6',
-        value: '/statics/avatar/6.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6b4yfnj305s04gq3h.jpg',
         checked: false
       },
       {
         name: '7',
-        value: '/statics/avatar/7.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6ivunlj305c04gwes.jpg',
         checked: false
       },
       {
         name: '8',
-        value: '/statics/avatar/8.png',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6rnnhlj304o04gmxk.jpg',
         checked: false
       }
     ],
@@ -275,7 +275,7 @@ Page({
     } else if (Object.keys(options).length !== 0 && options.type === 'view') {
       _XingLingData = options.data
       this.setData({
-        shareStatus: false
+        shareStatus: true
       })
     } else {
       _XingLingData = wx.getStorageSync('xinglingData')

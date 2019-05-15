@@ -15,42 +15,42 @@ Page({
     avatarList: [
       {
         name: '1',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/1.png?sign=586d696c5f0b365ab683877c14a20ce8&t=1557909927',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/1.png?sign=a2ea65ed8f9f146b12fd9a844ddbb50e&t=1557910360',
         checked: false
       },
       {
         name: '2',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/2.png?sign=dda9fa57289af1c25bd5008ba1684000&t=1557909963',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/2.png?sign=fc667b888aeadffc64903df76be0cae0&t=1557910378',
         checked: false
       },
       {
         name: '3',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/3.png?sign=ff7aea7745df3fd057585d24933f1e32&t=1557909972',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/3.png?sign=2dbda4b3588a9cfc64fb50f4b5cdbb32&t=1557910386',
         checked: false
       },
       {
         name: '4',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/4.png?sign=8fd31724db7f2306ab7378389e1d4efe&t=1557909979',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/4.png?sign=0cb0561d0c4accd0a3a034348a54a962&t=1557910393',
         checked: false
       },
       {
         name: '5',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/5.png?sign=d4b4a34af983a9bcb4109a85f7203c4c&t=1557909988',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/5.png?sign=8105e6b5b84561214692b6aedc91c3b0&t=1557910402',
         checked: false
       },
       {
         name: '6',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/6.png?sign=b00dfadfa4afa71046d4ded478372197&t=1557909997',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/6.png?sign=50799585a2224479664dfccfe60d02f2&t=1557910414',
         checked: false
       },
       {
         name: '7',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/7.png?sign=afb7e0961d3e0a9d0eb6e16fe34a93e7&t=1557910005',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/7.png?sign=4b5840f8a056539b484e5ceb5cb5cbdc&t=1557910426',
         checked: false
       },
       {
         name: '8',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/8.png?sign=7c2a16f8f68ce3c994b04108a5ad7614&t=1557910013',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/8.png?sign=bc7957dc009955b98b8af5645e835354&t=1557910435',
         checked: false
       }
     ],

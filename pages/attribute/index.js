@@ -15,42 +15,42 @@ Page({
     avatarList: [
       {
         name: '1',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo3o2t2jj304g04gjrs.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/1.png?sign=586d696c5f0b365ab683877c14a20ce8&t=1557909927',
         checked: false
       },
       {
         name: '2',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo4sf6rhj305k04g3yp.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/2.png?sign=dda9fa57289af1c25bd5008ba1684000&t=1557909963',
         checked: false
       },
       {
         name: '3',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo587fl6j305s04gglw.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/3.png?sign=ff7aea7745df3fd057585d24933f1e32&t=1557909972',
         checked: false
       },
       {
         name: '4',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo5h5z5ej304004gjri.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/4.png?sign=8fd31724db7f2306ab7378389e1d4efe&t=1557909979',
         checked: false
       },
       {
         name: '5',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo63naytj306804gt9c.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/5.png?sign=d4b4a34af983a9bcb4109a85f7203c4c&t=1557909988',
         checked: false
       },
       {
         name: '6',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6b4yfnj305s04gq3h.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/6.png?sign=b00dfadfa4afa71046d4ded478372197&t=1557909997',
         checked: false
       },
       {
         name: '7',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6ivunlj305c04gwes.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/7.png?sign=afb7e0961d3e0a9d0eb6e16fe34a93e7&t=1557910005',
         checked: false
       },
       {
         name: '8',
-        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6rnnhlj304o04gmxk.jpg',
+        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/avatar/8.png?sign=7c2a16f8f68ce3c994b04108a5ad7614&t=1557910013',
         checked: false
       }
     ],

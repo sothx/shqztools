@@ -14,7 +14,7 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
+	"libVersion": "2.7.0",
 	"appid": "wx3c67aee384cfbeb2",
 	"projectname": "ColorUI-template",
 	"debugOptions": {

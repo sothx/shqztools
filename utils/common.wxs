@@ -1,0 +1,79 @@
+var filters = {
+  // 获取星灵评级的名称
+  xingLingPinZhiName: function (num) {
+    var _num = parseInt(num)
+    var _pingji = ''
+    switch (_num) {
+      case 0:
+        _pingji = '普通'
+        break
+      case 1:
+        _pingji = '优良'
+        break
+      case 2:
+        _pingji = '精致'
+        break
+      case 3:
+        _pingji = '传说'
+        break
+      case 4:
+        _pingji = '神工'
+        break
+      case 5:
+        _pingji = '逆天'
+        break
+    }
+    return _pingji
+  },
+  // 获取星灵评级图标
+  xingLingPinZhiIcon: function (num) {
+    // console.log(num)
+    var _num = parseInt(num)
+    var _pinzhiicon = ''
+    switch (_num) {
+      case 0:
+        _pinzhiicon = ''
+        break
+      case 1:
+        _pinzhiicon = 'text-green'
+        break
+      case 2:
+        _pinzhiicon = 'text-blue'
+        break
+      case 3:
+        _pinzhiicon = 'text-mauve'
+        break
+      case 4:
+        _pinzhiicon = 'text-yellow'
+        break
+      case 5:
+        _pinzhiicon = 'text-red'
+        break
+    }
+    return _pinzhiicon
+  },
+  // 时间过滤器
+  dateFilter: function(date, filter) {
+    var _date = getDate(date)
+    var Y = _date.getFullYear()
+    var M = _date.getMonth() + 1
+    var D = _date.getDate()
+    var h = _date.getHours()
+    var m = _date.getMinutes()
+    var s = _date.getSeconds()
+
+    switch (filter) {
+      case 'YYYY-MM-DD':
+        return Y + '-' + M + '-' + D
+      default:
+        return Y + '-' + M + '-' + D + '-' + h + '-' + m + '-' + s
+    }
+  }
+}
+
+
+module.exports = {
+  xingLingPinZhiName: filters.xingLingPinZhiName,
+  xingLingPinZhiIcon: filters.xingLingPinZhiIcon,
+  dateFilter: filters.dateFilter
+}

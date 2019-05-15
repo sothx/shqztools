@@ -69,7 +69,7 @@ Page({
    */
   onLoad: function (options) {
     if (wx.getStorageSync('UserXingLingData') !== '') {
-      let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
+      let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData')).reverse()
       this.setData({
         UserXingLingData: _UserXingLingData
       })
@@ -103,7 +103,7 @@ Page({
    */
   onShow: function () {
     if (wx.getStorageSync('UserXingLingData') !== '') {
-      let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData'))
+      let _UserXingLingData = JSON.parse(wx.getStorageSync('UserXingLingData')).reverse()
       this.setData({
         UserXingLingData: _UserXingLingData
       })

@@ -15,42 +15,42 @@ Page({
     avatarList: [
       {
         name: '1',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/1.png?sign=a2ea65ed8f9f146b12fd9a844ddbb50e&t=1557910360',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo3o2t2jj304g04gjrs.jpg',
         checked: false
       },
       {
         name: '2',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/2.png?sign=fc667b888aeadffc64903df76be0cae0&t=1557910378',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo4sf6rhj305k04g3yp.jpg',
         checked: false
       },
       {
         name: '3',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/3.png?sign=2dbda4b3588a9cfc64fb50f4b5cdbb32&t=1557910386',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo587fl6j305s04gglw.jpg',
         checked: false
       },
       {
         name: '4',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/4.png?sign=0cb0561d0c4accd0a3a034348a54a962&t=1557910393',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo5h5z5ej304004gjri.jpg',
         checked: false
       },
       {
         name: '5',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/5.png?sign=8105e6b5b84561214692b6aedc91c3b0&t=1557910402',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo63naytj306804gt9c.jpg',
         checked: false
       },
       {
         name: '6',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/6.png?sign=50799585a2224479664dfccfe60d02f2&t=1557910414',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6b4yfnj305s04gq3h.jpg',
         checked: false
       },
       {
         name: '7',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/7.png?sign=4b5840f8a056539b484e5ceb5cb5cbdc&t=1557910426',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6ivunlj305c04gwes.jpg',
         checked: false
       },
       {
         name: '8',
-        value: 'https://7368-shqztools-1259234103.tcb.qcloud.la/XingLingAvatar/8.png?sign=bc7957dc009955b98b8af5645e835354&t=1557910435',
+        value: 'https://tva1.sinaimg.cn/large/007rAy9hgy1g2xo6rnnhlj304o04gmxk.jpg',
         checked: false
       }
     ],

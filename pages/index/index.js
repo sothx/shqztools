@@ -195,7 +195,7 @@ Page({
     console.log(e);
     this.setData({
       'XingLingData.zizhi': e.detail.value,
-      'XingLingData.qianghua': 0
+      'XingLingData.qianghua': ''
     })
     this.setQianghuaPicker()
   },
@@ -203,7 +203,7 @@ Page({
     console.log(e);
     this.setData({
       'XingLingData.chengzhang': e.detail.value,
-      'XingLingData.qianghua': 0
+      'XingLingData.qianghua': ''
     })
     this.setQianghuaPicker()
   },
@@ -228,20 +228,36 @@ Page({
         console.log(this.data.XingLingData.pinzhi)
         let _pinzhi = Number(this.data.XingLingData.pinzhi)
         if (_pinzhi === 0) {
+          this.setData({
+            'XingLingData.qianghua': 2
+          })
           return i <= 2
         } else if (_pinzhi === 1) {
+          this.setData({
+            'XingLingData.qianghua': 4
+          })
           return i <= 4
         } else if (_pinzhi === 2) {
+          this.setData({
+            'XingLingData.qianghua': 6
+          })
           return i <= 6
         } else if (_pinzhi === 3) {
+          this.setData({
+            'XingLingData.qianghua': 8
+          })
           return i <= 8
         } else {
+          this.setData({
+            'XingLingData.qianghua': 10
+          })
           return true
         }
       })
+
       this.setData({
         'qianghua': _qianghuaList,
-        'qianghuaMessage': '请选择强化等级'
+        'qianghuaMessage': '默认最高强化等级'
       })
     } else {
       this.setData({

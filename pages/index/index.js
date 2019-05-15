@@ -255,9 +255,14 @@ Page({
         }
       })
 
+      // this.setData({
+      //   'qianghua': _qianghuaList,
+      //   'qianghuaMessage': '请选择强化等级'
+      // })
+      // 已设置默认强化等级，清除强化提示
       this.setData({
         'qianghua': _qianghuaList,
-        'qianghuaMessage': '默认最高强化等级'
+        'qianghuaMessage': ''
       })
     } else {
       this.setData({

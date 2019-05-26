@@ -15,6 +15,13 @@
         </view>
       </view>
   </view>
+<view>
+    <picker range-key="key" bindchange="LevelChange" value="{{index}}" range="{{levelList}}">
+      <view class="picker padding flex flex-direction">
+        <button class="cu-btn bg-blue margin-tb-sm lg">根据星灵等级填充潜力点数</button>
+      </view>
+    </picker> 
+</view>
   <form  bindsubmit="formSubmit" bindreset="formReset">
 	<view class="cu-form-group margin-top">
 		<view class="title">资质</view>
@@ -51,7 +58,7 @@
     </view>
     <view class="cu-form-group">
       <view class="title">力量潜力点数</view>
-      <input name="liliangqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+      <input name="liliangqianlidianshu" maxlength="4" value="{{XingLingData.liliangqianlidianshu}}" type="number" placeholder="如300"></input>
     </view>
   </view>
   <view class="flex shuxingBorder">
@@ -61,7 +68,7 @@
     </view>
     <view class="cu-form-group">
       <view class="title">体质潜力点数</view>
-      <input name="tizhiqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+      <input name="tizhiqianlidianshu" value="{{XingLingData.tizhiqianlidianshu}}" maxlength="4" type="number" placeholder="如300"></input>
     </view>
   </view>
   <view class="flex shuxingBorder">
@@ -71,7 +78,7 @@
     </view>
     <view class="cu-form-group">
       <view class="title">心力潜力点数</view>
-      <input name="xinliqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+      <input name="xinliqianlidianshu" value="{{XingLingData.xinliqianlidianshu}}" maxlength="4" type="number" placeholder="如300"></input>
     </view>
   </view>
   <view class="flex shuxingBorder">
@@ -81,7 +88,7 @@
     </view>
     <view class="cu-form-group">
       <view class="title">耐力潜力点数</view>
-      <input name="nailiqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+      <input name="nailiqianlidianshu" value="{{XingLingData.nailiqianlidianshu}}" maxlength="4" type="number" placeholder="如300"></input>
     </view>
   </view>
   <view class="flex shuxingBorder">
@@ -91,7 +98,7 @@
     </view>
     <view class="cu-form-group">
       <view class="title">敏捷潜力点数</view>
-      <input name="minjieqianlidianshu" maxlength="4" type="number" placeholder="如300"></input>
+      <input name="minjieqianlidianshu" value="{{XingLingData.minjieqianlidianshu}}" maxlength="4" type="number" placeholder="如300"></input>
     </view>
   </view>
   <view class="bg-white cu-bar btn-group padding-bottom">
@@ -99,16 +106,36 @@
     <button form-type="submit" class="cu-btn bg-blue shadow-blur round">下一步</button>
   </view>
   </form>
-  <view  bindtap="hideModal" class="cu-modal {{modal?'show':''}}">
+  <view  bindtap="hideModal" class="cu-modal {{modal === 'errMessage' ?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">错误提醒</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        <view wx:for="{{errStore}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-modal {{modal=='level'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
-      <view class="content">错误提醒</view>
+      <view class="content">即将为您填充潜力点数</view>
       <view class="action" bindtap="hideModal">
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
     <view class="padding-xl">
-      <view wx:for="{{errStore}}" wx:key="{{index}}">{{item}}</view>
+      您选择的是<text class="text-blue">{{ levelData.level }}级星源灵宠</text>，我们将为每个属性填充<text class="text-blue">基础潜力点数{{ levelData.initQianLiDianShu }}点</text>，您可<text class="text-blue">自由分配的潜力点数为{{ levelData.freeQianLiDianShu }}点</text>，<text class="text-red">不包含悟性领悟的额外潜力点数</text>。
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-blue text-green" bindtap="hideModal">我想自己填</button>
+        <button class="cu-btn bg-blue margin-left" bindtap="LevelSubmit">我已了解</button>
+
+      </view>
     </view>
   </view>
 </view>

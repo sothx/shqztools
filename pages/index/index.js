@@ -5,12 +5,23 @@ const app = getApp()
 Page({
   data: {
     num: 0,
+    levelList: [],
+    levelData: {
+      level: '',
+      initQianLiDianShu: '',
+      freeQianLiDianShu: ''
+    },
     XingLingData: {
       zizhi: '',
       chengzhang: '',
       qianghua: '',
       pinzhi: '',
-      xingjiang: false
+      xingjiang: false,
+      liliangqianlidianshu: '',
+      tizhiqianlidianshu: '',
+      xinliqianlidianshu: '',
+      nailiqianlidianshu: '',
+      minjieqianlidianshu: ''
     },
     qianghuaStatus: true,
     qianghuaMessage: '未选择资质/成长',
@@ -134,7 +145,7 @@ Page({
         PCT: 5
       }
     ],
-    modal: false,
+    modal: '',
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     motto: 'Hi 开发者！',
@@ -158,7 +169,7 @@ Page({
       this.setData({
         errStore: _errStore
       })
-      this.showModal()
+      this.showErrModal()
     } else {
       wx.setStorage({
         key: 'xinglingData',
@@ -181,14 +192,60 @@ Page({
       'qianghuaMessage': '未选择资质/成长'
     })
   },
-  showModal () {
+  initLevelList () {
+    let _arr = []
+
+    for (let i = 1; i <= 159; i++) {
+      _arr.push({
+        key: i + '级',
+        value: i
+      })
+    }
     this.setData({
-      modal: true
+      levelList: _arr
+    })
+  },
+  showErrModal () {
+    this.setData({
+      modal: 'errMessage'
+    })
+  },
+  showLevelModal () {
+    this.setData({
+      modal: 'level'
     })
   },
   hideModal () {
     this.setData({
-      modal: false
+      modal: ''
+    })
+  },
+  LevelChange(e) {
+    console.log(e);
+    let _level = Number(e.detail.value) + 1
+    let _initQianLiDianShu = _level + 9
+    let _freeQianLiDianShu = _level * 5
+    this.setData({
+      'levelData.level': _level,
+      'levelData.initQianLiDianShu': _initQianLiDianShu,
+      'levelData.freeQianLiDianShu': _freeQianLiDianShu
+    })
+    this.showLevelModal()
+  },
+  LevelSubmit () {
+    let _initQianLiDianShu = Number(this.data.levelData.initQianLiDianShu)
+    this.setData({
+      'XingLingData.liliangqianlidianshu': _initQianLiDianShu,
+      'XingLingData.tizhiqianlidianshu': _initQianLiDianShu,
+      'XingLingData.xinliqianlidianshu': _initQianLiDianShu,
+      'XingLingData.nailiqianlidianshu': _initQianLiDianShu,
+      'XingLingData.minjieqianlidianshu': _initQianLiDianShu
+    })
+    this.hideModal()
+    wx.showToast({
+      title: '已完成填充',
+      icon: 'none',
+      duration: 2000
     })
   },
   ZiZhiChange(e) {
@@ -299,6 +356,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.initLevelList()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

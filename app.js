@@ -1,4 +1,6 @@
 //app.js
+import util from './utils/util'
+import http from '@chunpu/http'
 App({
   onLaunch: function() {
     // 检查版本更新
@@ -34,11 +36,13 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //     console.log(res)
+    //   }
+    // })
+    this.login()
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -71,5 +75,13 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  login () {
+    console.log('登录')
+    return util.promisify(wx.login)().then(({code}) => {
+      return http.post('/login',{
+        code
+      })
+    })
   }
 })

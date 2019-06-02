@@ -12,7 +12,7 @@ App({
     updateManager.onUpdateReady(function () {
       wx.showModal({
         title: '更新提示',
-        content: '新版本星灵计算器准备好，是否立即更新？',
+        content: '新版本的星灵计算器已准备好，是否立即更新？',
         success(res) {
           if (res.confirm) {
             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
@@ -42,7 +42,17 @@ App({
     //     console.log(res)
     //   }
     // })
-    this.login()
+    try {
+      let token = wx.getStorageSync('token')
+      if (token) {
+        // Do something with return value
+      } else {
+        this.login()
+      }
+    } catch (e) {
+      // Do something when catch error
+      this.login()
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -81,6 +91,14 @@ App({
     return util.promisify(wx.login)().then(({code}) => {
       return http.post('/login',{
         code
+      }).then(res => {
+        console.log(res)
+        let _data = res.data
+        try {
+          wx.setStorageSync('token', _data.data.token)
+        } catch (e) { 
+          console.log('保存token出错')
+        }
       })
     })
   }

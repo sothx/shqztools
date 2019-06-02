@@ -7,6 +7,21 @@ http.init({
   wx: wx
 })
 
+http.interceptors.request.use(config => {
+  // Do something before request is sent
+  // console.log(config)
+  try {
+    let token = wx.getStorageSync('token')
+    if (token) {
+      // Do something with return value
+      config.headers.Authorization = 'Bearer ' + token
+    }
+  } catch (e) {
+    // Do something when catch error
+  }
+  return config
+})  
+
 
 const formatTime = date => {
   const year = date.getFullYear()

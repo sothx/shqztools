@@ -38,10 +38,22 @@ Page({
           iv: e.detail.iv
         }).then(res => {
           console.log(res)
-          let _data = res.data
-          app.globalData.userInfo = _data.data.userInfo
+          // 正常逻辑
+          // let _data = res.data
+          // app.globalData.userInfo = _data.data.userInfo
+          // this.setData({
+          //   userInfo: _data.data.userInfo,
+          //   hasUserInfo: true
+          // })
+          app.globalData.userInfo = e.detail.userInfo
           this.setData({
-            userInfo: _data.data.userInfo,
+            userInfo: e.detail.userInfo,
+            hasUserInfo: true
+          })
+        }).catch(err => {
+          app.globalData.userInfo = e.detail.userInfo
+          this.setData({
+            userInfo: e.detail.userInfo,
             hasUserInfo: true
           })
         })

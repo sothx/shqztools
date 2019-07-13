@@ -16,9 +16,6 @@
       </view>
   </view>
 <view>
-  <ad unit-id="adunit-62a4ee4c5064b9e7"  ad-intervals="30"></ad>
-</view>
-<view>
     <picker range-key="key" bindchange="LevelChange" value="{{index}}" range="{{levelList}}">
       <view class="picker padding flex flex-direction">
         <button class="cu-btn bg-blue margin-tb-sm lg">根据星灵等级填充潜力点数</button>
@@ -109,6 +106,9 @@
     <button form-type="submit" class="cu-btn bg-blue shadow-blur round">下一步</button>
   </view>
   </form>
+  <view>
+  <ad unit-id="adunit-62a4ee4c5064b9e7"  ad-intervals="30"></ad>
+</view>
   <view  bindtap="hideModal" class="cu-modal {{modal === 'errMessage' ?'show':''}}">
     <view class="cu-dialog">
       <view class="cu-bar bg-white justify-end">

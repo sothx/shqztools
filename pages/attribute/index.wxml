@@ -5,9 +5,6 @@
 </cu-custom>     
 <view class="bg-blue.light body">
 <view>
-<view>
-  <ad unit-id="adunit-62a4ee4c5064b9e7"  ad-intervals="30"></ad>
-</view>
   <view class="bg-blue.light padding">
       <view class="cu-steps">
         <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
@@ -124,6 +121,9 @@
     <button bindtap="saveXingLing" class="cu-btn bg-green shadow-blur round">保存星灵</button>
   </view>
     </view>
+    <view>
+  <ad unit-id="adunit-62a4ee4c5064b9e7"  ad-intervals="30"></ad>
+</view>
 </view>
 </view>
 <form bindsubmit="goSave" class="cu-modal {{saveDialog?'show':''}}">

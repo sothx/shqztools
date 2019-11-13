@@ -30,41 +30,41 @@ Page({
   },
     // 获取用户信息
     getUserInfo: function(e) {
-      console.log(e)
-      if (e.detail.encryptedData && e.detail.iv) {
-        console.log('我允许了')
-        http.post('/getUserInfo',{
-          encryptedData: e.detail.encryptedData,
-          iv: e.detail.iv
-        }).then(res => {
-          console.log(res)
-          // 正常逻辑
-          // let _data = res.data
-          // app.globalData.userInfo = _data.data.userInfo
-          // this.setData({
-          //   userInfo: _data.data.userInfo,
-          //   hasUserInfo: true
-          // })
-          app.globalData.userInfo = e.detail.userInfo
-          this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-          })
-        }).catch(err => {
-          app.globalData.userInfo = e.detail.userInfo
-          this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-          })
-        })
-      } else {
-        console.log('我拒绝了')
-      }
-      // app.globalData.userInfo = e.detail.userInfo
-      // this.setData({
-      //   userInfo: e.detail.userInfo,
-      //   hasUserInfo: true
-      // })
+      // console.log(e)
+      // if (e.detail.encryptedData && e.detail.iv) {
+      //   console.log('我允许了')
+      //   http.post('/getUserInfo',{
+      //     encryptedData: e.detail.encryptedData,
+      //     iv: e.detail.iv
+      //   }).then(res => {
+      //     console.log(res)
+      //     // 正常逻辑
+      //     // let _data = res.data
+      //     // app.globalData.userInfo = _data.data.userInfo
+      //     // this.setData({
+      //     //   userInfo: _data.data.userInfo,
+      //     //   hasUserInfo: true
+      //     // })
+      //     app.globalData.userInfo = e.detail.userInfo
+      //     this.setData({
+      //       userInfo: e.detail.userInfo,
+      //       hasUserInfo: true
+      //     })
+      //   }).catch(err => {
+      //     app.globalData.userInfo = e.detail.userInfo
+      //     this.setData({
+      //       userInfo: e.detail.userInfo,
+      //       hasUserInfo: true
+      //     })
+      //   })
+      // } else {
+      //   console.log('我拒绝了')
+      // }
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
   },
       // ListTouch触摸开始
   ListTouchStart(e) {

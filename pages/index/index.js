@@ -11,9 +11,11 @@ Page({
       initQianLiDianShu: '',
       freeQianLiDianShu: ''
     },
+    chengzhangdangci: '',
     XingLingData: {
       zizhi: '',
       chengzhang: '',
+      chengzhangdangci: '',
       qianghua: '',
       pinzhi: '',
       xingjiang: false,
@@ -93,6 +95,52 @@ Page({
     }, {
       name: '开始计算'
       }],
+    chengzhangdangci: [
+      {
+        type: '不模拟',
+        PCT: 0
+      },
+      {
+        type: '2档',
+        PCT: 0.01
+      },
+      {
+        type: '3档',
+        PCT:0.02
+      },
+      {
+        type: '4档',
+        PCT:0.03
+      },
+      {
+        type: '5档',
+        PCT: 0.04
+      },
+      {
+        type: '6档',
+        PCT: 0.06
+      },
+      {
+        type: '7档',
+        PCT: 0.08
+      },
+      {
+        type: '8档',
+        PCT: 0.10
+      },
+      {
+        type: '9档',
+        PCT: 0.12
+      },
+      {
+        type: '10档',
+        PCT: 0.15
+      },
+      {
+        type: '11档',
+        PCT: 0.20
+      }
+    ],
     zizhi: [
       {
         type: '普通',
@@ -186,6 +234,7 @@ Page({
       'XingLingData.xingjiang': false,
       'XingLingData.zizhi': '',
       'XingLingData.chengzhang': '',
+      'XingLingData.chengzhangdangci': '',
       'XingLingData.qianghua': '',
       'XingLingData.pinzhi': '',
       qianghuaStatus: true,
@@ -247,6 +296,13 @@ Page({
       icon: 'none',
       duration: 2000
     })
+  },
+  ChengZhangDangCiChange(e) {
+    console.log(e);
+    this.setData({
+      'XingLingData.chengzhangdangci': e.detail.value
+    })
+    this.setQianghuaPicker()
   },
   ZiZhiChange(e) {
     console.log(e);

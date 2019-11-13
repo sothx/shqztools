@@ -1,4 +1,61 @@
 var filters = {
+  // 获取星灵综合计算结果
+  xingLingZiZhiResult: function (data, chengzhangdangci) {
+    console.log(data, chengzhangdangci)
+    _dangci = [
+      {
+        type: '不模拟',
+        PCT: 0
+      },
+      {
+        type: '2档',
+        PCT: 0.01
+      },
+      {
+        type: '3档',
+        PCT: 0.02
+      },
+      {
+        type: '4档',
+        PCT: 0.03
+      },
+      {
+        type: '5档',
+        PCT: 0.04
+      },
+      {
+        type: '6档',
+        PCT: 0.06
+      },
+      {
+        type: '7档',
+        PCT: 0.08
+      },
+      {
+        type: '8档',
+        PCT: 0.10
+      },
+      {
+        type: '9档',
+        PCT: 0.12
+      },
+      {
+        type: '10档',
+        PCT: 0.15
+      },
+      {
+        type: '11档',
+        PCT: 0.20
+      }
+    ]
+    console.log(_dangci[parseInt(chengzhangdangci - 1)].PCT)
+    var _pct = _dangci[parseInt(chengzhangdangci - 1)].PCT
+    if (_pct !== 0) {
+      return data + '+' + _pct
+    } else {
+      return data
+    }
+  },
   // 获取星灵评级的名称
   xingLingPinZhiName: function (num) {
     var _num = parseInt(num)
@@ -75,5 +132,6 @@ var filters = {
 module.exports = {
   xingLingPinZhiName: filters.xingLingPinZhiName,
   xingLingPinZhiIcon: filters.xingLingPinZhiIcon,
-  dateFilter: filters.dateFilter
+  dateFilter: filters.dateFilter,
+  xingLingZiZhiResult: filters.xingLingZiZhiResult
 }

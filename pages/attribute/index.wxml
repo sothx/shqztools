@@ -3,6 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">星灵计算器</view>
 </cu-custom>     
+<wxs module="common" src="../../utils/common.wxs"></wxs>
 <view class="bg-blue.light body">
 <view>
   <view class="bg-blue.light padding">
@@ -21,12 +22,13 @@
     <view class="bg-blue.light userCard">
       <view class='text-center bg-cyan.light'>
         <view class="padding-tb-xs">{{ XingLingData.xingjiang ? '已开启星将职业属性加成10%':'非星将职业无加成' }}</view>
+        <view class="padding-tb-xs">{{ XingLingData.chengzhangdangci ? '成长档次:'+XingLingData.chengzhangdangci+'档':'未模拟成长档次' }}</view>
         <view  class="padding-bottom-xs shuxingGroup">
             <view class="col-6">强化等级:{{ XingLingData.qianghua }}级</view>
             <view class="col-6">星灵评级:{{pinzhi}}</view>
         </view>
         <view  class="padding-bottom-xs shuxingGroup">
-            <view class="col-6">力量资质:{{ XingLingData.liliangzizhi }}</view>
+            <view class="col-6">力量资质:{{ common.xingLingZiZhiResult(XingLingData.liliangzizhi,XingLingData.chengzhangdangci) }}</view>
             <view class="col-6">力量潜力点数:{{ XingLingData.liliangqianlidianshu }}点</view>
         </view>
         <view  class="padding-bottom-xs shuxingGroup">

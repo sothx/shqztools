@@ -42,17 +42,18 @@ App({
     //     console.log(res)
     //   }
     // })
-    try {
-      let token = wx.getStorageSync('token')
-      if (token) {
-        // Do something with return value
-      } else {
-        this.login()
-      }
-    } catch (e) {
-      // Do something when catch error
-      this.login()
-    }
+    // 注释掉登录功能
+    // try {
+    //   let token = wx.getStorageSync('token')
+    //   if (token) {
+    //     // Do something with return value
+    //   } else {
+    //     this.login()
+    //   }
+    // } catch (e) {
+    //   // Do something when catch error
+    //   this.login()
+    // }
     // 获取用户信息
     wx.getSetting({
       success: res => {

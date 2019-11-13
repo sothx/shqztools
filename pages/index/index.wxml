@@ -47,9 +47,17 @@
 			</view>
 		</picker>
 	</view>
-  	<view class="cu-form-group">
+  <view class="cu-form-group">
 		<view class="title">是否星将</view>
 		<switch name="xingjiang" class="blue sm" checked="{{XingLingData.xingjiang}}" bindchange="XingjiangChange"></switch>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">模拟成长档次</view>
+		<picker name="chengzhangdangci" bindchange="ChengZhangDangCiChange" value="{{XingLingData.chengzhangdangci}}" range="{{chengzhangdangci}}" range-key="type">
+			<view class="picker">
+				{{XingLingData.chengzhangdangci?chengzhangdangci[XingLingData.chengzhangdangci].type:'不模拟'}}
+			</view>
+		</picker>
 	</view>
   <view class="flex shuxingBorder">
     <view class="cu-form-group">
